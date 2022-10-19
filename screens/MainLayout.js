@@ -11,7 +11,7 @@ import Animated, {
 import { connect } from 'react-redux';
 import { Header } from '../components';
 import { setSelectedTab } from '../stores/tab/tabActions';
-import { COLORS, constants, icons, SIZES } from '../constants'
+import { COLORS, constants, dummyData, icons, SIZES } from '../constants'
 
 const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelectedTab }) => {
 
@@ -49,6 +49,7 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                             borderColor: COLORS.gray2,
                             borderRadius: SIZES.radius,
                         }}
+                        onPress={() => navigation.openDrawer()}
                     >
                         <Image
                             source={icons.menu}
@@ -58,15 +59,21 @@ const MainLayout = ({ drawerAnimationStyle, navigation, selectedTab, setSelected
                 rightComponent={
                     <TouchableOpacity
                         style={{
-                            width: 40,
-                            height: 40,
+                            borderRadius: SIZES.radius,
                             alignItems: 'center',
                             justifyContent: 'center',
+
+                            width: 40,
+                            height: 40,
                             borderWidth: 1,
                             borderColor: COLORS.gray2,
-                            borderRadius: SIZES.radius,
                         }}
                     >
+                        <Image
+                            // source={dummyData.myProfile?.profile_image}
+                            source={{ uri: 'https://yt3.ggpht.com/vPYy-zeU9o6j98WyhS_r5HkMelB9vD--AwzUKB0Xd7Wcm5Qhza4iwOyS8fiGjawcNV3y17a8=s88-c-k-c0x00ffffff-no-rj-mo' }}
+                            style={{ width: 40, height: 40, borderRadius: SIZES.radius }}
+                        />
 
                     </TouchableOpacity>
                 }

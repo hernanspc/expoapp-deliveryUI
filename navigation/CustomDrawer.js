@@ -85,7 +85,8 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
                     onPress={() => console.log('profile ')}
                 >
                     <Image style={{ height: 50, width: 50, borderRadius: SIZES.radius }}
-                        source={dummyData.myProfile?.profile_image}
+                        // source={dummyData.myProfile?.profile_image}
+                        source={{ uri: 'https://yt3.ggpht.com/vPYy-zeU9o6j98WyhS_r5HkMelB9vD--AwzUKB0Xd7Wcm5Qhza4iwOyS8fiGjawcNV3y17a8=s88-c-k-c0x00ffffff-no-rj-mo' }}
                     />
                     <View style={{ marginLeft: SIZES.radius }}>
                         <Text style={{ color: COLORS.white, ...FONTS.h3 }}>{dummyData.myProfile?.name}</Text>
