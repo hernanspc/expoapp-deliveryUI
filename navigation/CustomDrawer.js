@@ -1,6 +1,13 @@
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer'
+import { useState } from 'react';
 import React, { Image, ScrollView, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Animated, {
+    useSharedValue,
+    withTiming,
+    useAnimatedStyle,
+    Easing,
+} from 'react-native-reanimated';
 import { COLORS, constants, dummyData, FONTS, icons, SIZES } from '../constants';
 import { MainLayout } from '../screens';
 
@@ -48,7 +55,7 @@ const CustomDrawerContent = ({ navigation }) => {
                 {/* Close */}
                 <View
                     style={{
-                        alignItems: 'center',
+                        alignItems: 'flex-start',
                         justifyContent: 'center',
                     }}
                 >
@@ -147,6 +154,19 @@ const CustomDrawerContent = ({ navigation }) => {
 }
 
 const CustomDrawer = () => {
+    const [progress, setProgress] = useState(new Animated.Value(0))
+
+    const scale = Animated.interpolateNode(progress, {
+        inputRange: [0, 1],
+        outputRange: [1, 0.8],
+    })
+
+    const borderRadius = Animated.interpolateNode(progress, {
+        inputRange: [0, 1],
+        outputRange: [0, 26],
+    })
+
+    const animatedStyle = { borderRadius, trasform: [{ scale }] }
 
     return (
         <View style={{
@@ -167,6 +187,10 @@ const CustomDrawer = () => {
                 }}
                 initialRouteName="MainLayout"
                 drawerContent={props => {
+                    setTimeout(() => {
+                        setProgress(props.progress)
+                    }, 0)
+
                     return (
                         <CustomDrawerContent
                             navigation={props.navigation}
@@ -175,7 +199,10 @@ const CustomDrawer = () => {
                 }}
             >
                 <Drawer.Screen name="MainLayout">
-                    {props => <MainLayout {...props} />}
+                    {props => <MainLayout {...props}
+                        drawerAnimationStyle={animatedStyle}
+                    />}
+
                 </Drawer.Screen>
 
             </Drawer.Navigator>
