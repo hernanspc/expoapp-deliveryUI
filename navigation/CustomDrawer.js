@@ -1,5 +1,5 @@
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer'
-import React, { Image, Text, View } from 'react-native'
+import React, { Image, ScrollView, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { COLORS, constants, dummyData, FONTS, icons, SIZES } from '../constants';
 import { MainLayout } from '../screens';
@@ -86,7 +86,7 @@ const CustomDrawerContent = ({ navigation }) => {
                 </TouchableOpacity>
 
                 {/* DrawerItems*/}
-                <View style={{ flex: 1, marginTop: SIZES.padding }}>
+                <ScrollView style={{ flex: 1, marginTop: SIZES.padding }}>
                     <CustomDrawerItem
                         label={constants.screens.home}
                         icon={icons.home}
@@ -133,21 +133,14 @@ const CustomDrawerContent = ({ navigation }) => {
                         icon={icons.help}
                     />
 
+                </ScrollView>
 
-                </View>
-
-                <View
-                    style={{
-                        marginBottom: SIZES.padding
-                    }}
-                >
+                <View style={{ marginBottom: SIZES.padding }}  >
                     <CustomDrawerItem
                         label={'Logout'}
                         icon={icons.logout}
                     />
                 </View>
-
-
             </View>
         </DrawerContentScrollView>
     )
