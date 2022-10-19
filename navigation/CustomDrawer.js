@@ -158,15 +158,15 @@ const CustomDrawer = () => {
 
     const scale = Animated.interpolateNode(progress, {
         inputRange: [0, 1],
-        outputRange: [1, 0.8],
+        outputRange: [1, 0.8]
     })
 
     const borderRadius = Animated.interpolateNode(progress, {
         inputRange: [0, 1],
-        outputRange: [0, 26],
+        outputRange: [0, 26]
     })
 
-    const animatedStyle = { borderRadius, trasform: [{ scale }] }
+    const animatedStyle = { borderRadius, transform: [{ scale }] }
 
     return (
         <View style={{
