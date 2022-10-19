@@ -103,6 +103,7 @@ const CustomDrawerContent = ({ navigation }) => {
                         label={constants.screens.favourite}
                         icon={icons.favourite}
                     />
+                    {/* LineDivider */}
                     <View
                         style={{
                             height: 1,
@@ -111,11 +112,40 @@ const CustomDrawerContent = ({ navigation }) => {
                             backgroundColor: COLORS.lightGray1
                         }}
                     />
+                    <CustomDrawerItem
+                        label={'Track your Order'}
+                        icon={icons.location}
+                    />
+                    <CustomDrawerItem
+                        label={'Coupons'}
+                        icon={icons.coupon}
+                    />
+                    <CustomDrawerItem
+                        label={'Settings'}
+                        icon={icons.setting}
+                    />
+                    <CustomDrawerItem
+                        label={'Invite to Friend'}
+                        icon={icons.profile}
+                    />
+                    <CustomDrawerItem
+                        label={'Help Center'}
+                        icon={icons.help}
+                    />
+
 
                 </View>
-                {/* LineDivider */}
 
-
+                <View
+                    style={{
+                        marginBottom: SIZES.padding
+                    }}
+                >
+                    <CustomDrawerItem
+                        label={'Logout'}
+                        icon={icons.logout}
+                    />
+                </View>
 
 
             </View>
