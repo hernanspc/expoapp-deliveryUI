@@ -30,7 +30,6 @@ const CustomDrawer = () => {
                 </Drawer.Screen>
 
             </Drawer.Navigator>
-            {/* <MainLayout /> */}
         </View>
     )
 }
